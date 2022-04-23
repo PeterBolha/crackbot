@@ -1,7 +1,10 @@
 import discord
 import os
 
+COMMAND_SYMBOL = '.'
+
 client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -13,7 +16,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith(os.getenv('COMMAND_SYMBOL') + 'ping'):
+    if message.content.startswith(COMMAND_SYMBOL + 'ping'):
         await message.channel.send('pong')
 
 
